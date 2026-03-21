@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ruta del Nido | Alimentos Naturales</title>
+    <meta name="description" content="Ruta del Nido: alimentos naturales seleccionados, contacto directo y un catalogo simple para pedir por WhatsApp.">
+    <meta property="og:title" content="Ruta del Nido | Alimentos Naturales">
+    <meta property="og:description" content="Alimentos naturales seleccionados, contacto directo y un catalogo simple para pedir por WhatsApp.">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ruta del Nido",
+        "description": "Huevos, quesos, mariscos y productos naturales seleccionados para pedir directo por WhatsApp.",
+        "telephone": "+56947529379",
+        "slogan": "Del campo directo a tu mesa",
+        "sameAs": ["https://instagram.com/rutadelnido"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/logo/RUTA_DEL_NIDO_LOGO.svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card-scene">
+        <main class="card-flip" id="flipCard" tabindex="0" aria-label="Tarjeta Ruta del Nido. Clic para ver productos." data-flipped="false">
+            <section class="vcard vcard--front" aria-label="Frente de tarjeta digital Ruta del Nido">
+                <header class="hero">
+                    <div class="brandmark">
+                        <img class="brandmark__img" src="assets/logo/RUTA_DEL_NIDO_LOGO.svg" alt="Logo Ruta del Nido">
+                    </div>
+                    <p class="hero__tagline">Del campo directo a tu mesa</p>
+                    <p class="hero__lead">Huevos, quesos, mariscos y productos naturales seleccionados.</p>
+                    <p class="flip-tip">Toca la tarjeta para ver productos</p>
+                </header>
+
+                <section class="actions" aria-label="Acciones principales">
+                    <a class="btn btn--primary" href="https://wa.me/56947529379" target="_blank" rel="noopener noreferrer" aria-label="Pedir por WhatsApp">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.52 0 .18 5.34.18 11.88c0 2.1.55 4.14 1.6 5.95L0 24l6.34-1.66a11.86 11.86 0 0 0 5.72 1.46h.01c6.54 0 11.88-5.34 11.88-11.88 0-3.17-1.24-6.15-3.43-8.44Zm-8.46 18.3h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.76.98 1-3.67-.24-.37a9.88 9.88 0 0 1-1.52-5.27C2.13 6.43 6.57 2 12.06 2c2.64 0 5.13 1.03 7 2.9a9.82 9.82 0 0 1 2.9 6.99c0 5.48-4.44 9.9-9.9 9.9Zm5.43-7.39c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.23-.65.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.01-1.04 2.47 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.63.72.22 1.37.19 1.89.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+                        Pedir por WhatsApp
+                    </a>
+                    <button class="btn btn--secondary" id="seeCatalog" type="button" aria-label="Ver catalogo y productos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13Zm2.5-.5a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-11ZM8 8h8v2H8V8Zm0 4h8v2H8v-2Zm0 4h5v2H8v-2Z"/></svg>
+                        Ver catalogo
+                    </button>
+                    <a class="btn btn--ghost" href="https://instagram.com/rutadelnido" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Ruta del Nido en Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.9 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+                        Seguir en Instagram
+                    </a>
+                </section>
+
+                <section class="quick-contact" aria-label="Contacto rapido">
+                    <h2>Contacto</h2>
+                    <a href="tel:+56947529379" class="row" aria-label="Llamar al +56 9 4752 9379">
+                        <span class="row__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.2 18.9a19.5 19.5 0 0 1-8.1-8.1A19.8 19.8 0 0 1 .08 2.18 2 2 0 0 1 2.06 0h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L6.1 7.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.58 2.8.7A2 2 0 0 1 22 16.92Z"/></svg>
+                        </span>
+                        <span class="row__label">Telefono</span>
+                        <span class="row__value">+56 9 4752 9379</span>
+                    </a>
+                    <a href="https://wa.me/56947529379" class="row" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Ruta del Nido">
+                        <span class="row__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.52 0 .18 5.34.18 11.88c0 2.1.55 4.14 1.6 5.95L0 24l6.34-1.66a11.86 11.86 0 0 0 5.72 1.46h.01c6.54 0 11.88-5.34 11.88-11.88 0-3.17-1.24-6.15-3.43-8.44Zm-8.46 18.3h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.76.98 1-3.67-.24-.37a9.88 9.88 0 0 1-1.52-5.27C2.13 6.43 6.57 2 12.06 2c2.64 0 5.13 1.03 7 2.9a9.82 9.82 0 0 1 2.9 6.99c0 5.48-4.44 9.9-9.9 9.9Zm5.43-7.39c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.23-.65.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.01-1.04 2.47 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.63.72.22 1.37.19 1.89.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+                        </span>
+                        <span class="row__label">Pedidos</span>
+                        <span class="row__value">Respuesta directa</span>
+                    </a>
+                    <a href="https://instagram.com/rutadelnido" class="row" target="_blank" rel="noopener noreferrer" aria-label="Instagram @rutadelnido">
+                        <span class="row__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.9 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+                        </span>
+                        <span class="row__label">Instagram</span>
+                        <span class="row__value">@rutadelnido</span>
+                    </a>
+                </section>
+
+                <footer class="footer" aria-label="Compartir contacto">
+                    <div class="footer__main">
+                        <button id="saveContact" class="chip" type="button">Guardar contacto</button>
+                        <p class="footer__note">Guarda la tarjeta y comparte el QR.</p>
+                    </div>
+                    <div class="qr-wrap">
+                        <div id="qr-canvas"></div>
+                        <span>Escanea y comparte</span>
+                    </div>
+                </footer>
+            </section>
+
+            <section class="vcard vcard--back" aria-label="Dorso de tarjeta con productos y precios" hidden>
+                <header class="back-head">
+                    <p class="back-head__kicker">Productos</p>
+                    <h2>Catalogo</h2>
+                    <p>Valores de referencia para pedidos por WhatsApp.</p>
+                </header>
+
+                <div class="product-list" role="list">
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/HUEVOS_EXTRA_TRAY.webp" alt="Huevos extra blancos" loading="lazy" data-fallback="HB">
+                            <h3>Huevos extra blancos</h3>
+                        </div>
+                        <p>Bandeja 30 unidades</p>
+                        <strong>$6.500</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/EGGS_EPIC.webp" alt="Huevos de gallina libre color" loading="lazy" data-fallback="HC">
+                            <h3>Huevos de gallina libre color</h3>
+                        </div>
+                        <p>Bandeja 30 unidades</p>
+                        <strong>$9.000</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/QUESO_RUEDA_FINAL.webp" alt="Queso mantecoso de Pua" loading="lazy" data-fallback="QP">
+                            <h3>Queso mantecoso de Pua</h3>
+                        </div>
+                        <p>Pieza 450 a 500 g</p>
+                        <strong>$8.500</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/QUESO_LICANRAY_FINAL.webp" alt="Queso Chanco de Lican Ray" loading="lazy" data-fallback="QC">
+                            <h3>Queso Chanco de Lican Ray</h3>
+                        </div>
+                        <p>Pieza 500 g</p>
+                        <strong>$8.500</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/LONGANIZA_CONTULMO.webp" alt="Longaniza de Contulmo clasica espanola" loading="lazy" data-fallback="LC">
+                            <h3>Longaniza de Contulmo clasica espanola</h3>
+                        </div>
+                        <p>Se cobra solo el peso</p>
+                        <strong>$10.800/kg</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/SALMON_PREMIUM_BAG.webp" alt="Salmon porcionado con piel" loading="lazy" data-fallback="SP">
+                            <h3>Salmon porcionado con piel</h3>
+                        </div>
+                        <p>Bolsa 500 g</p>
+                        <strong>$8.000</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/SURTIDO_MARISCOS_PREMIUM.webp" alt="Surtido de mariscos premium" loading="lazy" data-fallback="SM">
+                            <h3>Surtido de mariscos premium</h3>
+                        </div>
+                        <p>Bolsa 1 kg</p>
+                        <strong>$5.500</strong>
+                    </article>
+                    <article class="product" role="listitem">
+                        <div class="product__head">
+                            <img class="product__img" src="assets/products/CAMARON_ECO_BAG.webp" alt="Camaron cocido sin cascara" loading="lazy" data-fallback="CC">
+                            <h3>Camaron cocido sin cascara</h3>
+                        </div>
+                        <p>Bolsa 1 kg</p>
+                        <strong>$6.800</strong>
+                    </article>
+                </div>
+
+                <footer class="back-foot">
+                    <button id="backToFront" class="chip chip--dark" type="button">Volver al frente</button>
+                    <a class="btn btn--primary btn--compact" href="https://wa.me/56947529379" target="_blank" rel="noopener noreferrer" aria-label="Pedir productos por WhatsApp">
+                        Pedir por WhatsApp
+                    </a>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

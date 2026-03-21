@@ -1,0 +1,31 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="greenArcLogo" x1="310" y1="22" x2="548" y2="214" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5D962D"/>
+      <stop offset="1" stop-color="#1E5B2A"/>
+    </linearGradient>
+    <linearGradient id="yolkLogo" x1="404" y1="68" x2="473" y2="167" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4C739"/>
+      <stop offset="1" stop-color="#DF9D27"/>
+    </linearGradient>
+    <linearGradient id="nestLogo" x1="344" y1="138" x2="512" y2="214" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7C27F"/>
+      <stop offset="1" stop-color="#C2A365"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <path d="M429 20C488 20 536 50 558 100C526 57 481 37 429 37C375 37 331 60 309 103C315 52 366 20 429 20Z" fill="url(#greenArcLogo)"/>
+    <path d="M429 66C453 66 470 98 470 138V161C457 170 441 173 429 173C417 173 401 170 389 161V138C389 98 405 66 429 66Z" fill="url(#yolkLogo)"/>
+    <path d="M320 157C344 188 383 209 429 209C476 209 515 188 539 157C531 202 487 239 429 239C371 239 328 202 320 157Z" fill="#1E5B2A"/>
+    <path d="M338 144C365 157 395 164 429 164C463 164 494 157 521 144C500 168 468 182 429 182C390 182 359 168 338 144Z" fill="url(#nestLogo)"/>
+  </g>
+
+  <text x="600" y="178" text-anchor="middle" fill="#1E5B2A" font-size="96" font-family="Fraunces, Georgia, serif" font-weight="800" letter-spacing="-1">
+    Ruta del Nido
+  </text>
+  <path d="M290 232C375 218 484 213 600 213C715 213 824 218 910 232" stroke="#C2A365" stroke-width="6" stroke-linecap="round"/>
+  <text x="600" y="286" text-anchor="middle" fill="#C2A365" font-size="44" font-family="Manrope, Arial, sans-serif" font-weight="700" letter-spacing="10">
+    ALIMENTOS NATURALES
+  </text>
+</svg>
