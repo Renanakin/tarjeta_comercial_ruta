@@ -14,53 +14,6 @@
     });
 })();
 
-(function initSaveContact() {
-    const saveButton = document.getElementById("saveContact");
-    if (!saveButton) {
-        return;
-    }
-
-    saveButton.addEventListener("click", function (event) {
-        event.stopPropagation();
-
-        const nameParts = CONTACT.fullName.split(" ");
-        const first = nameParts.shift() || CONTACT.fullName;
-        const last = nameParts.join(" ");
-
-        const vcard = [
-            "BEGIN:VCARD",
-            "VERSION:3.0",
-            "FN:" + CONTACT.fullName,
-            "N:" + last + ";" + first + ";;;",
-            "ORG:" + CONTACT.company,
-            "TITLE:" + CONTACT.title,
-            "TEL;TYPE=CELL:" + CONTACT.phone,
-            "URL:" + CONTACT.cardUrl,
-            "NOTE:" + CONTACT.description + " Instagram: " + CONTACT.instagramHandle + ". WhatsApp: " + CONTACT.phoneDisplay + ".",
-            "END:VCARD"
-        ].join("\n");
-
-        const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
-        const url = URL.createObjectURL(blob);
-        const anchor = document.createElement("a");
-
-        anchor.href = url;
-        anchor.download = "Ruta_del_Nido.vcf";
-        document.body.appendChild(anchor);
-        anchor.click();
-        document.body.removeChild(anchor);
-
-        URL.revokeObjectURL(url);
-
-        const originalText = saveButton.textContent;
-        saveButton.textContent = "Contacto guardado";
-
-        setTimeout(function () {
-            saveButton.textContent = originalText;
-        }, 1800);
-    });
-})();
-
 (function initCardFlip() {
     const card = document.getElementById("flipCard");
     const openCatalogButton = document.getElementById("seeCatalog");
