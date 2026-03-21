@@ -35,8 +35,8 @@
             "ORG:" + CONTACT.company,
             "TITLE:" + CONTACT.title,
             "TEL;TYPE=CELL:" + CONTACT.phone,
-            "URL:" + CONTACT.instagram,
-            "NOTE:" + CONTACT.description,
+            "URL:" + CONTACT.cardUrl,
+            "NOTE:" + CONTACT.description + " Instagram: " + CONTACT.instagramHandle + ". WhatsApp: " + CONTACT.phoneDisplay + ".",
             "END:VCARD"
         ].join("\n");
 

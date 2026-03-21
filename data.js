@@ -13,5 +13,5 @@
     whatsapp: "https://wa.me/56947529379",
     instagram: "https://instagram.com/rutadelnido",
     instagramHandle: "@rutadelnido",
-    cardUrl: "https://rutadelnido.cl"
+    cardUrl: "https://rutadelnido.hackteck.cl/"
 };
