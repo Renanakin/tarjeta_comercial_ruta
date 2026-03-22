@@ -614,23 +614,40 @@ body::before {
     }
 
     .vcard {
-        transition: opacity 0.16s ease;
+        transition: opacity 0.2s ease, visibility 0s linear;
     }
 
     .vcard--front,
     .vcard--back {
         transform: none;
+        visibility: visible;
     }
 
     .vcard--back {
         opacity: 0;
+        pointer-events: none;
     }
 
     .card-flip.is-flipped .vcard--front {
         opacity: 0;
+        visibility: visible;
     }
 
     .card-flip.is-flipped .vcard--back {
         opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .card-flip:not(.is-flipped) .vcard--front {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .card-flip:not(.is-flipped) .vcard--back {
+        opacity: 0;
+        visibility: visible;
+        pointer-events: none;
     }
 }
