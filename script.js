@@ -32,7 +32,7 @@
             "URL:" + CONTACT.cardUrl,
             "NOTE:" + CONTACT.description + " Instagram: " + CONTACT.instagramHandle + ". WhatsApp: " + CONTACT.phoneDisplay + ".",
             "END:VCARD"
-        ].join("\n");
+        ].join("\r\n") + "\r\n";
     }
 
     function triggerDownload() {
