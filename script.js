@@ -14,6 +14,53 @@
     });
 })();
 
+(function initSmartContactDownload() {
+    const mobileContact = document.getElementById("mobileContact");
+    if (!mobileContact || typeof CONTACT === "undefined") {
+        return;
+    }
+
+    function buildVCard() {
+        return [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "FN:" + CONTACT.fullName,
+            "N:del Nido;Ruta;;;",
+            "ORG:" + CONTACT.company,
+            "TITLE:" + CONTACT.title,
+            "TEL;TYPE=CELL:" + CONTACT.phone,
+            "URL:" + CONTACT.cardUrl,
+            "NOTE:" + CONTACT.description + " Instagram: " + CONTACT.instagramHandle + ". WhatsApp: " + CONTACT.phoneDisplay + ".",
+            "END:VCARD"
+        ].join("\n");
+    }
+
+    function triggerDownload() {
+        try {
+            const blob = new Blob([buildVCard()], { type: "text/vcard;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const link = Object.assign(document.createElement("a"), {
+                href: url,
+                download: "Ruta_del_Nido.vcf"
+            });
+
+            document.body.appendChild(link);
+            link.click();
+
+            window.setTimeout(function () {
+                URL.revokeObjectURL(url);
+                document.body.removeChild(link);
+            }, 300);
+        } catch (error) {
+            console.error("Error generando vCard:", error);
+        }
+    }
+
+    mobileContact.addEventListener("click", function () {
+        triggerDownload();
+    });
+})();
+
 (function initCardFlip() {
     const card = document.getElementById("flipCard");
     const openCatalogButton = document.getElementById("seeCatalog");
