@@ -591,6 +591,66 @@ body::before {
     }
 }
 
+@media (hover: none) and (pointer: coarse) {
+    .card-scene {
+        perspective: none;
+    }
+
+    .card-flip,
+    .card-flip.is-flipped,
+    .card-flip.is-pressing,
+    .card-flip.is-pressing.is-flipped,
+    .card-flip.is-flipping {
+        --flip-rotate-y: 0deg;
+        --flip-press-scale: 1;
+        --flip-lift-y: 0px;
+        transform: none;
+    }
+
+    .card-flip::before,
+    .card-flip::after {
+        display: none;
+    }
+
+    .vcard {
+        transition: opacity 0.34s ease, transform 0.34s ease, visibility 0s linear;
+    }
+
+    .vcard--front,
+    .vcard--back {
+        transform: none;
+        visibility: visible;
+    }
+
+    .card-flip:not(.is-flipped) .vcard--front {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .card-flip:not(.is-flipped) .vcard--back {
+        opacity: 0;
+        visibility: visible;
+        transform: translateY(14px);
+        pointer-events: none;
+    }
+
+    .card-flip.is-flipped .vcard--front {
+        opacity: 0;
+        visibility: visible;
+        transform: translateY(-14px);
+        pointer-events: none;
+    }
+
+    .card-flip.is-flipped .vcard--back {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .card-flip,
     .btn {
