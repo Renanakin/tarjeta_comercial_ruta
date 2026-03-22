@@ -64,6 +64,7 @@ END:VCARD`;
     const backToFrontButton = document.getElementById("backToFront");
     const frontFace = document.querySelector(".vcard--front");
     const backFace = document.querySelector(".vcard--back");
+    const FLIP_DURATION_MS = 760;
     if (!card) {
         return;
     }
@@ -73,6 +74,7 @@ END:VCARD`;
     let touchCandidate = false;
     let touchMoved = false;
     let suppressClickUntil = 0;
+    let flipTimer = 0;
 
     function shouldIgnore(target) {
         return Boolean(target.closest("a, button, input, textarea, select, #qr-canvas"));
@@ -85,19 +87,26 @@ END:VCARD`;
     }
 
     function setFlipState(isFlipped) {
+        window.clearTimeout(flipTimer);
+        card.classList.add("is-flipping");
         card.classList.toggle("is-flipped", isFlipped);
         card.setAttribute("data-flipped", String(isFlipped));
         if (frontFace && backFace) {
-            frontFace.hidden = isFlipped;
             frontFace.setAttribute("aria-hidden", String(isFlipped));
-            backFace.hidden = !isFlipped;
             backFace.setAttribute("aria-hidden", String(!isFlipped));
         }
+        flipTimer = window.setTimeout(function () {
+            card.classList.remove("is-flipping");
+        }, FLIP_DURATION_MS);
         syncFacesToTop();
     }
 
     function toggleFlip() {
         setFlipState(!card.classList.contains("is-flipped"));
+    }
+
+    function setPressState(isPressing) {
+        card.classList.toggle("is-pressing", isPressing);
     }
 
     card.addEventListener("click", function (event) {
@@ -117,11 +126,27 @@ END:VCARD`;
         }
     });
 
+    card.addEventListener("mousedown", function (event) {
+        if (shouldIgnore(event.target)) {
+            return;
+        }
+        setPressState(true);
+    });
+
+    card.addEventListener("mouseup", function () {
+        setPressState(false);
+    });
+
+    card.addEventListener("mouseleave", function () {
+        setPressState(false);
+    });
+
     card.addEventListener("touchstart", function (event) {
         if (shouldIgnore(event.target) || event.touches.length !== 1) {
             touchCandidate = false;
             return;
         }
+        setPressState(true);
         touchCandidate = true;
         touchMoved = false;
         touchStartX = event.touches[0].clientX;
@@ -139,11 +164,13 @@ END:VCARD`;
         const deltaY = Math.abs(touch.clientY - touchStartY);
 
         if (deltaX > 12 || deltaY > 12) {
+            setPressState(false);
             touchMoved = true;
         }
     }, { passive: true });
 
     card.addEventListener("touchend", function (event) {
+        setPressState(false);
         if (!touchCandidate || !event.changedTouches.length) {
             touchCandidate = false;
             return;
@@ -161,6 +188,11 @@ END:VCARD`;
             suppressClickUntil = Date.now() + 450;
             toggleFlip();
         }
+    }, { passive: true });
+
+    card.addEventListener("touchcancel", function () {
+        touchCandidate = false;
+        setPressState(false);
     }, { passive: true });
 
     if (openCatalogButton) {

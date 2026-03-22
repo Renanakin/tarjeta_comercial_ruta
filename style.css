@@ -59,13 +59,54 @@ body::before {
 .card-scene {
     width: min(100%, 440px);
     margin: 0 auto;
+    perspective: 1800px;
+    perspective-origin: center center;
 }
 
 .card-flip {
+    --flip-rotate-y: 0deg;
+    --flip-press-scale: 1;
+    --flip-lift-y: 0px;
+    position: relative;
     width: 100%;
-    min-height: 0;
+    min-height: min(820px, calc(100dvh - 24px));
     cursor: pointer;
     outline: none;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    transform: translate3d(0, var(--flip-lift-y), 0) rotateY(var(--flip-rotate-y)) scale(var(--flip-press-scale));
+    transition: transform 0.72s cubic-bezier(0.32, 0.72, 0, 1);
+    will-change: transform;
+}
+
+.card-flip::before,
+.card-flip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-card);
+    pointer-events: none;
+}
+
+.card-flip::before {
+    inset: auto 6% -18px;
+    height: 38px;
+    z-index: -2;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 59, 29, 0.24) 0%, rgba(20, 59, 29, 0.08) 48%, transparent 72%);
+    filter: blur(14px);
+    opacity: 0.88;
+    transform: translateZ(-60px) scale(0.96);
+    transition: transform 0.72s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.32s ease;
+}
+
+.card-flip::after {
+    z-index: 4;
+    opacity: 0;
+    background:
+        linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.05) 36%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.05) 64%, transparent 80%);
+    mix-blend-mode: screen;
+    transition: opacity 0.32s ease;
 }
 
 .card-flip:focus-visible {
@@ -73,8 +114,33 @@ body::before {
     border-radius: var(--radius-card);
 }
 
-.card-flip [hidden] {
-    display: none !important;
+.card-flip.is-flipped {
+    --flip-rotate-y: 180deg;
+}
+
+.card-flip.is-flipping {
+    --flip-lift-y: -4px;
+}
+
+.card-flip.is-flipped::before {
+    opacity: 0.92;
+    transform: translate3d(-4px, 8px, -60px) scale(0.95);
+}
+
+.card-flip.is-flipping::after {
+    opacity: 0.34;
+}
+
+.card-flip.is-pressing::after {
+    opacity: 0.08;
+}
+
+.card-flip.is-pressing {
+    --flip-press-scale: 0.9985;
+}
+
+.card-flip.is-pressing.is-flipped {
+    --flip-press-scale: 0.9985;
 }
 
 .vcard {
@@ -89,7 +155,52 @@ body::before {
     border: 1px solid var(--line);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-strong);
-    overflow: hidden;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.vcard--front,
+.vcard--back {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+}
+
+.vcard--front {
+    transform: rotateY(0deg) translateZ(1px);
+    visibility: visible;
+}
+
+.vcard--back {
+    transform: rotateY(180deg) translateZ(1px);
+}
+
+.card-flip.is-flipping .vcard--front,
+.card-flip.is-flipping .vcard--back {
+    visibility: visible;
+}
+
+.card-flip:not(.is-flipped) .vcard--front {
+    pointer-events: auto;
+}
+
+.card-flip:not(.is-flipped) .vcard--back {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.card-flip.is-flipped .vcard--front {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.card-flip.is-flipped .vcard--back {
+    pointer-events: auto;
+    visibility: visible;
 }
 
 .vcard::before {
@@ -170,6 +281,23 @@ body::before {
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+}
+
+.flip-tip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flip-tip::before {
+    content: "";
+    width: 26px;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(20, 59, 29, 0.16);
+    background:
+        linear-gradient(90deg, rgba(20, 59, 29, 0.9), rgba(20, 59, 29, 0.28));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
 }
 
 .actions {
@@ -435,7 +563,7 @@ body::before {
 
 @media (max-width: 440px) {
     .card-flip {
-        min-height: 0;
+        min-height: calc(100dvh - 16px);
     }
 
     .vcard {
@@ -467,5 +595,42 @@ body::before {
     .card-flip,
     .btn {
         transition-duration: 0.01ms;
+    }
+
+    .card-scene {
+        perspective: none;
+    }
+
+    .card-flip,
+    .card-flip.is-flipped,
+    .card-flip.is-pressing,
+    .card-flip.is-pressing.is-flipped {
+        transform: none;
+    }
+
+    .card-flip::before,
+    .card-flip::after {
+        display: none;
+    }
+
+    .vcard {
+        transition: opacity 0.16s ease;
+    }
+
+    .vcard--front,
+    .vcard--back {
+        transform: none;
+    }
+
+    .vcard--back {
+        opacity: 0;
+    }
+
+    .card-flip.is-flipped .vcard--front {
+        opacity: 0;
+    }
+
+    .card-flip.is-flipped .vcard--back {
+        opacity: 1;
     }
 }
