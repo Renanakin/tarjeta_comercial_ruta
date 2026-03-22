@@ -5,6 +5,6 @@ N:del Nido;Ruta;;;
 ORG:Ruta del Nido
 TITLE:Alimentos Naturales
 TEL;TYPE=CELL:+56947529379
-URL:https://rutadelnido.hackteck.cl/
-NOTE:Huevos, quesos, mariscos y productos naturales seleccionados para pedir directo por WhatsApp. Instagram: @rutadelnido. WhatsApp: +56 9 4752 9379.
+EMAIL;TYPE=PREF,INTERNET:rutadelnido@gmail.com
+URL:rutadelnido.hackteck.cl
 END:VCARD

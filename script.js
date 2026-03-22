@@ -20,24 +20,21 @@
         return;
     }
 
-    function buildVCard() {
-        return [
-            "BEGIN:VCARD",
-            "VERSION:3.0",
-            "FN:" + CONTACT.fullName,
-            "N:del Nido;Ruta;;;",
-            "ORG:" + CONTACT.company,
-            "TITLE:" + CONTACT.title,
-            "TEL;TYPE=CELL:" + CONTACT.phone,
-            "URL:" + CONTACT.cardUrl,
-            "NOTE:" + CONTACT.description + " Instagram: " + CONTACT.instagramHandle + ". WhatsApp: " + CONTACT.phoneDisplay + ".",
-            "END:VCARD"
-        ].join("\r\n") + "\r\n";
-    }
-
     function triggerDownload() {
         try {
-            const blob = new Blob([buildVCard()], { type: "text/vcard;charset=utf-8" });
+            const c = CONTACT;
+            const vcard =
+                `BEGIN:VCARD
+VERSION:3.0
+FN:${c.fullName}
+N:${c.fullName.split(" ").slice(1).join(" ")};${c.fullName.split(" ")[0]};;;
+ORG:${c.company}
+TITLE:${c.title}
+TEL;TYPE=CELL:${c.phone}
+EMAIL;TYPE=PREF,INTERNET:${c.email}
+URL:${c.websiteDisplay}
+END:VCARD`;
+            const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
             const url = URL.createObjectURL(blob);
             const link = Object.assign(document.createElement("a"), {
                 href: url,
